@@ -1,10 +1,8 @@
 package com.exodus.config;
 
 import com.exodus.bean.Person;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.FilterType;
+import com.exodus.service.BookService;
+import org.springframework.context.annotation.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 
@@ -13,11 +11,19 @@ import org.springframework.stereotype.Service;
 // excludeFilters, includeFilters
 // useDefaultFilters
 // ComponentScans
-@ComponentScan(value = "com.exodus", includeFilters = {
-        @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = {Controller.class, Service.class})
-}, useDefaultFilters = false)
+//@ComponentScan(value = "com.exodus", includeFilters = {
+//        @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = {Controller.class, Service.class})
+//}, useDefaultFilters = false)
+//
+@ComponentScans(value = {
+        @ComponentScan(value = "com.exodus", includeFilters = {
+//                @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = {Controller.class}),
+//                @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = {BookService.class}),
+                @ComponentScan.Filter(type = FilterType.CUSTOM, classes = {MyTypeFilter.class})
+        }, useDefaultFilters = false)
+})
 public class MainConfig {
-    @Bean("Person")
+    @Bean("person")
     public Person person01() {
         return new Person("Henry", 30);
     }
