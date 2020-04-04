@@ -6,7 +6,7 @@ import org.springframework.context.annotation.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 
-@Configuration
+@Configuration // 告诉Spring这是一个配置类
 // ComponentScan 指定要扫描的包
 // excludeFilters, includeFilters
 // useDefaultFilters
@@ -23,7 +23,7 @@ import org.springframework.stereotype.Service;
         }, useDefaultFilters = false)
 })
 public class MainConfig {
-    @Bean("person")
+    @Bean("person") // 给容器中注册一个bean
     public Person person01() {
         return new Person("Henry", 30);
     }
