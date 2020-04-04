@@ -10,6 +10,10 @@ import org.springframework.core.type.filter.TypeFilter;
 import java.io.IOException;
 
 public class MyTypeFilter implements TypeFilter {
+    /**
+     * metadataReader:读取到当前正在扫描的类信息
+     * metadataReaderFactory: 可以获取到其它任何类信息
+     * */
     @Override
     public boolean match(MetadataReader metadataReader, MetadataReaderFactory metadataReaderFactory) throws IOException {
         // 获取当前类注解信息
