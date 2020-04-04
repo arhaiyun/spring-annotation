@@ -37,17 +37,17 @@ import org.springframework.context.annotation.Configuration;
  *      applyBeanPostProcessorsAfterInitialization(wrappedBean, beanName);
  * }
  *
- * 1.制定初始化和销毁方法
+ * 1.制定初始化和销毁方法(Car.java)
  *      @Bean(initMethod = "init", destroyMethod = "destroy")
  *
- * 2.通过让Bean实现InitializingBean(定义初始化逻辑),
+ * 2.通过让Bean实现InitializingBean(定义初始化逻辑), (Cat.java)
  *          DisposableBean(定义销毁逻辑)
  *
- * 3.可以使用 JSR250:
+ * 3.可以使用 JSR250:   (Dog.java)
  *          @PostConstruct: 在bean创建完成并且属性赋值完成来执行初始化方法
  *          @PreDestroy:  在容器销毁bean之前通知我们做的清理工作
  *
- * 4. BeanPostProcessor[interface] bean的后置处理器
+ * 4. BeanPostProcessor[interface] bean的后置处理器   (MyBeanPostProcessor.java)
  *          postProcessBeforeInitialization
  *          postProcessAfterInitialization
  *
@@ -59,6 +59,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ComponentScan("com.exodus.bean")
 public class MainConfigOfLifeCycle {
+
     @Bean(initMethod = "init", destroyMethod = "destroy")
     public Car car() {
         return new Car();

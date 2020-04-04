@@ -10,6 +10,7 @@ import javax.annotation.PreDestroy;
 
 @Component
 public class Dog implements ApplicationContextAware {
+
     ApplicationContext applicationContext;
 
     public Dog() {

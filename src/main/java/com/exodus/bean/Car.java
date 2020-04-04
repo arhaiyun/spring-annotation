@@ -1,6 +1,7 @@
 package com.exodus.bean;
 
 public class Car {
+
     public Car() {
         System.out.println("car constructor...");
     }
