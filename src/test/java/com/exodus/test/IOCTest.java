@@ -62,16 +62,14 @@ public class IOCTest {
         System.out.println(bean);
 
         // 获取的是colorFactoryBean.getObject方法返回对象
-        Object colorFactoryBean1 = applicationContext.getBean("colorFactoryBean");
-        System.out.println(colorFactoryBean1.getClass());
-        Object colorFactoryBean2 = applicationContext.getBean("colorFactoryBean");
+        Object bean1 = applicationContext.getBean("colorFactoryBean");
+        System.out.println(bean1.getClass());
+        Object bean2 = applicationContext.getBean("colorFactoryBean");
         // colorFactoryBean.isSingleton 返回为true则一致
-        System.out.println(colorFactoryBean1 == colorFactoryBean2);
+        System.out.println(bean1 == bean2);
 
         Object colorFactoryBean = applicationContext.getBean("&colorFactoryBean");
         System.out.println(colorFactoryBean.getClass());
 //        class com.exodus.bean.ColorFactoryBean
-
-
     }
 }

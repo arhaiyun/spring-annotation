@@ -46,7 +46,7 @@ public class MainConfig2 {
     }
 
     /**
-     * 给容器中注册组件的3种方式：
+     * 给容器中注册组件的4种方式：
      *
      * 1). 包扫描 + 组件标注注解(@Controller/@Service/@Repository/@Component) ----> 局限于自己写的类
      * 2). 使用@Bean -----> 可以导入第三方包里面的组件
