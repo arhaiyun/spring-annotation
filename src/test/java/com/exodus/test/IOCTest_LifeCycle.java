@@ -1,6 +1,6 @@
 package com.exodus.test;
 
-import com.exodus.condition.MainConfigOfLifeCycle;
+import com.exodus.config.MainConfigOfLifeCycle;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

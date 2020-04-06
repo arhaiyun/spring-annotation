@@ -24,7 +24,7 @@ public class Dog implements ApplicationContextAware {
 
     @PreDestroy
     public void destroy() {
-        System.out.println("dog PreDestroy..");
+        System.out.println("dog PreDestroy...");
     }
 
     @Override

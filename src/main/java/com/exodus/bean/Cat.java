@@ -18,6 +18,6 @@ public class Cat implements InitializingBean, DisposableBean {
 
     @Override
     public void destroy() throws Exception {
-        System.out.println("cat destroy...");
+        System.out.println("cat destroy..");
     }
 }

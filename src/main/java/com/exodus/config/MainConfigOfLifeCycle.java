@@ -1,4 +1,4 @@
-package com.exodus.condition;
+package com.exodus.config;
 
 import com.exodus.bean.Car;
 import org.springframework.context.annotation.Bean;
@@ -47,7 +47,7 @@ import org.springframework.context.annotation.Configuration;
  *          @PostConstruct: 在bean创建完成并且属性赋值完成来执行初始化方法
  *          @PreDestroy:  在容器销毁bean之前通知我们做的清理工作
  *
- * 4. BeanPostProcessor[interface] bean的后置处理器   (MyBeanPostProcessor.java)
+ * 4. BeanPostProcessor[interface] bean的后置处理器  (MyBeanPostProcessor.java)
  *          postProcessBeforeInitialization
  *          postProcessAfterInitialization
  *

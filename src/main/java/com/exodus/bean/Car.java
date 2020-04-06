@@ -1,5 +1,8 @@
 package com.exodus.bean;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Car {
 
     public Car() {
@@ -11,6 +14,11 @@ public class Car {
     }
 
     public void destroy() {
-        System.out.println("car destroy...");
+        System.out.println("car destroy..");
     }
+
+//    @Override
+//    public String toString() {
+//        return "Car{}";
+//    }
 }

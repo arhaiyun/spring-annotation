@@ -3,7 +3,7 @@ package com.exodus.test;
 import com.exodus.bean.Person;
 import com.exodus.bean.Red;
 import com.exodus.config.MainConfig;
-import com.exodus.config.MainConfig2;
+import com.exodus.config.MainConfigOfDI;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
@@ -13,7 +13,7 @@ import java.util.Map;
 // https://www.bilibili.com/video/BV1oW41167AV?p=7
 
 public class IOCTest {
-    AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfig2.class);
+    AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfigOfDI.class);
 
     @SuppressWarnings("resource")
     @Test

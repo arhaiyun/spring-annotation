@@ -13,7 +13,7 @@ import org.springframework.context.annotation.*;
 @Conditional({WindowsCondition.class}) // 类中组件统一设置：满足当前条件，这个类中配置的所有bean注册才能生效。
 @Configuration
 @Import({Color.class, Red.class, MyImportSelector.class, MyImportBeanDefinitionRegistrar.class}) //
-public class MainConfig2 {
+public class MainConfigOfDI {
     /**
      * Scope默认为singleton,ioc容器启动会调用方法创建对象到ioc,以后获取都是直接从容器中获取（map.get()）
      * prototype 多实例：ioc容器启动的时候并不会调用方法创建对象，每次获取的时候才会调用方法创建对象
