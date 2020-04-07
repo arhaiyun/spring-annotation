@@ -61,6 +61,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
  *  流程分析
  *  1.创建ioc容器 new AnnotationConfigApplicationContext(MainConfigOfAOP.class);
  *  2.注册配置类，调用refresh() 刷新容器
+ *  ------------------------以下是创建 AnnotationAwareAspectJAutoProxyCreator 的过程----------------------------
  *  3.registerBeanPostProcessors(beanFactory); 注册bean的后置处理器来方便拦截bean的创建
  *      1). 获取ioc容器已经定义了的需要创建对象的所有 BeanPostProcessor
  *      2). 给容器中加其他的 BeanPostProcessor
@@ -79,8 +80,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
  *          d.BeanPostProcessor(AnnotationAwareAspectJAutoProxyCreator) 创建成功  -- aspectJAdvisorsBuilder
  *      7). 把BeanPostProcessor注册到BeanFactory中：
  *          beanFactory.addBeanPostProcessor(postProcessor)
- *
- *  ------------------------以上是创建 AnnotationAwareAspectJAutoProxyCreator 的过程-----------------------------
+ *  ------------------------以上是创建 AnnotationAwareAspectJAutoProxyCreator 的过程----------------------------
  *  AnnotationAwareAspectJAutoProxyCreator ---> InstantiationAwareBeanPostProcessor
  *
  *  4.finishBeanFactoryInitialization(beanFactory); 完成BeanFactory初始化工作，创建剩下的单实例Bean
@@ -101,9 +101,6 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
  *                      }
  *
  *              2.调用doCreateBean 真正的创建一个Bean实例
- *
- *
- * AnnotationAwareAspectJAutoProxyCreator ---> InstantiationAwareBeanPostProcessor
  *
  *
  * 1.在每一个bean创建之前调用postProcessBeforeInstantiation
