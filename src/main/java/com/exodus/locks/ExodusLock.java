@@ -2,11 +2,7 @@ package com.exodus.locks;
 
 import sun.misc.Unsafe;
 
-import java.lang.reflect.Field;
-import java.security.AccessController;
-import java.security.PrivilegedExceptionAction;
 import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.LockSupport;
 
 public class ExodusLock {
@@ -18,16 +14,6 @@ public class ExodusLock {
      * 当前持有锁的线程
      * */
     private Thread lockHolder;
-
-    private static Field unsanfe = null;
-
-    static {
-        try {
-            unsanfe = Unsafe.class.getDeclaredField("theUnsafe");
-        } catch (NoSuchFieldException e) {
-            e.printStackTrace();
-        }
-    }
 
     private ConcurrentLinkedQueue<Thread> waiters = new ConcurrentLinkedQueue<>();
 
