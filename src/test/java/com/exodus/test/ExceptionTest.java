@@ -9,18 +9,18 @@ public class ExceptionTest {
         try {
             i++;
             System.out.println("try i = " + i);
-            i = i / 0;
+//            i = i / 0;
             return i;
         } catch (Exception e) {
             i++;
             System.out.println("catch i = " + i);
-            return i;
+//            return 4;
         } finally {
             i++;
             System.out.println("finally i = " + i);
-            return i;
+//            return 5;
         }
-//        return i;
+        return i;
     }
     @Test
     public void test01() {
