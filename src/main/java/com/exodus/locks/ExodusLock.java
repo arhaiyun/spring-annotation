@@ -8,11 +8,11 @@ import java.util.concurrent.locks.LockSupport;
 public class ExodusLock {
     /**
      * 当前锁状态
-     * */
+     */
     private volatile int state = 0;
     /**
      * 当前持有锁的线程
-     * */
+     */
     private Thread lockHolder;
 
     private ConcurrentLinkedQueue<Thread> waiters = new ConcurrentLinkedQueue<>();
@@ -39,6 +39,7 @@ public class ExodusLock {
         if (c == 0) {
             if ((waiters.size() == 0 || waiters.peek() == current) && compareAndSwapState(0, 1)) {
                 setLockHolder(current);
+                waiters.poll();
                 return true;
             }
         }
@@ -62,14 +63,14 @@ public class ExodusLock {
     }
 
     public void unlock() {
-        if(Thread.currentThread() != lockHolder) {
+        if (Thread.currentThread() != lockHolder) {
             throw new RuntimeException("Lockholder is not current thread");
         }
         int state = getState();
-        if(compareAndSwapState(0, 1)) {
+        if (compareAndSwapState(state, 0)) {
             setLockHolder(null);
             Thread first = waiters.peek();
-            if(first != null) {
+            if (first != null) {
                 LockSupport.unpark(first);
             }
         }
@@ -77,6 +78,7 @@ public class ExodusLock {
 
     private static final Unsafe unsafe = UnsafeInstance.reflectGetUnsafe();
     private static long stateOffset = 0;
+
     static {
         try {
             assert unsafe != null;
