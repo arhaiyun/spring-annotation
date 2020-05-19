@@ -17,7 +17,7 @@ public class IOCTest_AOP {
         //1.不要自己创建对象去测试aop功能，而是通过容器去获取组件信息
 //        MathCalculator mathCalculator = new MathCalculator();
         MathCalculator mathCalculator = applicationContext.getBean(MathCalculator.class);
-        mathCalculator.div(1, 1);
+        mathCalculator.div(3, 1);
 //        mathCalculator.div(1, 0);
 
         applicationContext.close();

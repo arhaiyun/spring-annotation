@@ -1,18 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="11">
-      <module name="bean-lifecycle" target="1.8" />
-      <module name="bean-scope" target="1.8" />
-      <module name="configuration-metadata" target="1.8" />
-      <module name="dependency-injection" target="1.8" />
-      <module name="dependency-lookup" target="1.8" />
-      <module name="dependency-source" target="1.8" />
-      <module name="ioc-container-overview" target="1.8" />
-      <module name="spring-bean" target="1.8" />
-      <module name="thinking-in-spring" target="1.8" />
-      <module name="ThreadPoolDemo" target="1.5" />
-      <module name="ThreadPoolDemos" target="1.5" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="spring-annotation" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
